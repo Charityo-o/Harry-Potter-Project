@@ -1,3 +1,5 @@
+from student import Student 
+
 def sorting_ceremony():
     name = input("What is your name? ")
     S = 0
@@ -169,23 +171,27 @@ def trivia(name):
     q15 = input()
     if q15 == 'a':
         points += 1
-2
+    return points
 
 if __name__ == '__main__':
     num_users = int(input("How many fresh-faced young witches and wizards have joined our ranks this year? "))
     print("Let the Sorting Ceremony commence!")
-    user_dict = {}
+    students = []
     for i in range (num_users):
         name, house= sorting_ceremony()
-        user_dict[name] = house
-        print(name, "you belong in...", house+"!")
-        print("Would the next young wizard please step forward!")
-        print(user_dict)
-
-    print("Now that all are sorted, it's time for a test of wit! Answer wisely to earn points for the House Cup—may the best house triumph!")
+        s = Student(name, house)
+        students.append(s)
+        print(students)
+        if house != "muggle":
+            print(name, "you belong in...", house+"!")
+        if i < num_users - 1:
+            print("Would the next young wizard please step forward!")
+    print("\nNow that all are sorted, it's time for a test of wit! Answer wisely to earn points for the House Cup—may the best house triumph!\n")
+   
+    for student in students:
+        student.add_point = trivia(student.name)
     
-    for key, value in user_dict.items():
-        trivia(key)
+
 
 
 
