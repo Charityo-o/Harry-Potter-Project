@@ -7,12 +7,11 @@ class Wizarding_match():
         self.option1 = 'None'
         self.option2 = 'Nah'
 
-
     def winner(self):
         if self.House1 == 3:
-            print('The winner is House1')
+            print(f'The winner is {self.house1}')
         elif self.House2 == 3:
-            print('The winner is House2')
+            print(f'The winner is {self.house2}')
         else:
             return False
     def iteration(self):
@@ -24,18 +23,17 @@ class Wizarding_match():
             if self.option1 == 'Rock' and self.option2 == 'Scissors':
                 self.House1 += 1
             elif self.option1 == 'Paper' and self.option2 == 'Rock':
-                self.House1 += 1
+                self.House1 += 1 
             elif self.option1 == 'Scissors' and self.option2 == 'Paper':
-                self.House1 += 1
-            elif self.option1 == self.option2:
+                self.House1 += 1 
+            elif self.option1 == self.option2: 
                 print('You both picked the same spells? Lame')
             elif self.option1 not in ['Rock', 'Paper', 'Scissors']:  
                 self.House1 = -1
-            elif self.option2 not in ['Rock', 'Paper', 'Scissors']:
+            elif self.option2 not in ['Rock', 'Paper', 'Scissors']: 
                 self.House2 = -1
             else:
                 self.House2 += 1
-
 
 print("Welcome to the wizarding match, this shall determine which house has the best wizards!")
 wizards = Wizarding_match('Ravenclaw', 'Hufflepuff')  
