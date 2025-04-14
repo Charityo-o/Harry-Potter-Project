@@ -21,7 +21,7 @@ q15 = Question("\nquestion and answers \na: \nb: \nc: \nd:", 'a')
 questions = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15]
 
 def trivia(name):
-    print("Okay", name+", trivia time!")
+    print("\nOkay", name+", trivia time!")
     points = 0
     for q in questions:
         print(q.ask)

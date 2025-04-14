@@ -1,6 +1,7 @@
 from student import Student 
 import trivia_questions
 import sorting_ceremony
+import wizarding_match
 
 if __name__ == '__main__':
     num_users = int(input("How many fresh-faced young witches and wizards have joined our ranks this year? "))
@@ -38,6 +39,16 @@ if __name__ == '__main__':
              m_points += student.points
 house_points = {"Gryffindor": G_points, "Ravenclaw": R_points, "Slytherin": S_points, "Hufflepuff": H_points, "muggle": m_points}
 cup_winner = max(house_points, key = house_points.get)
+
+'''
+total_points = []
+for value in house_points.values():
+     total_points.append(value)
+org_list = total_points.sort()
+if org_list[-1] == org_list[-2]:
+'''
+
+
 print("And the House Cup winner is!!! Count down with me!")
 print('5...')
 input()
