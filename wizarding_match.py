@@ -35,6 +35,6 @@ class Wizarding_match():
             else:
                 self.House2 += 1
 
-print("Welcome to the wizarding match, this shall determine which house has the best wizards!")
+'''print("Welcome to the wizarding match, this shall determine which house has the best wizards!")
 wizards = Wizarding_match('Ravenclaw', 'Hufflepuff')  
-start = wizards.iteration()
+start = wizards.iteration()'''
