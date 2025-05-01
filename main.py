@@ -4,10 +4,20 @@ import sorting_ceremony
 import wizarding_match
 
 if __name__ == '__main__':
-    num_users = int(input("How many fresh-faced young witches and wizards have joined our ranks this year? "))
-    print("Let the Sorting Ceremony commence!")
-    students = []
-    for i in range (num_users):
+
+     while True:
+          try:
+               num_users = int(input("How many fresh-faced young witches and wizards have joined our ranks this year? "))
+               break
+          except:
+               print("Ah, seems like you've cast a charm of confusion. Please enter a number, dear wizard.")
+
+     if num_users == 0:
+        print("Curiously, there are no new students this year. Still, perhaps next year will bring new minds through the castle gates.")
+        exit()
+     print("Let the Sorting Ceremony commence!")
+     students = []
+     for i in range (num_users):
         name, house= sorting_ceremony.sorting_ceremony()
         s = Student(name, house)
         students.append(s)
@@ -15,18 +25,18 @@ if __name__ == '__main__':
             print(name, "you belong in...", house+"!")
         if i < num_users - 1:
             print("Would the next young wizard please step forward!")
-    print("\nNow that all are sorted, it's time for a test of wit! Answer wisely to earn points for the House Cup—may the best house triumph!\n")
+     print("\nNow that all are sorted, it's time for a test of wit! Answer wisely to earn points for the House Cup—may the best house triumph!\n")
    
-    for student in students:
+     for student in students:
         student.points = trivia_questions.trivia(student.name)
         print(student.points)
     
-    G_points = 0
-    R_points = 0
-    S_points = 0
-    H_points = 0
-    m_points = 0
-    for student in students:
+     G_points = 0
+     R_points = 0
+     S_points = 0
+     H_points = 0
+     m_points = 0
+     for student in students:
         if student.house == "Gryffindor":
              G_points += student.points
         elif student.house == "Slytherin":
