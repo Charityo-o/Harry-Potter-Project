@@ -41,6 +41,6 @@ class Wizarding_match():
             except: 
                 print("Error, Your answer must be either: Rock, Paper, or Scissors")
 
-print("Welcome to the wizarding match, this shall determine which house has the best wizards!")
+'''print("Welcome to the wizarding match, this shall determine which house has the best wizards!")
 wizards = Wizarding_match('Ravenclaw', 'Hufflepuff')  
-start = wizards.iteration()
+start = wizards.iteration()'''
