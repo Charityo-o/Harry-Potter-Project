@@ -22,9 +22,13 @@ class Wizarding_match():
             try:
                 print(f'{self.house1}, choose one of the following options: Rock, Paper, Scissors')
                 self.option1 = input()
+                if self.option1 not in ['Rock', 'Paper', 'Scissors']: 
+                    raise WrongAnswerError(f'Your answer must be either: Rock, Paper, or Scissors') 
                 print(f'{self.house2}, choose one of the following options: Rock, Paper, Scissors')
                 self.option2 = input()
-                if self.option1 == 'Rock' and self.option2 == 'Scissors':
+                if self.option2 not in ['Rock', 'Paper', 'Scissors']: 
+                    raise WrongAnswerError(f'Your answer must be either: Rock, Paper, or Scissors')
+                elif self.option1 == 'Rock' and self.option2 == 'Scissors':
                     self.House1 += 1
                 elif self.option1 == 'Paper' and self.option2 == 'Rock':
                     self.House1 += 1 
@@ -32,15 +36,11 @@ class Wizarding_match():
                     self.House1 += 1 
                 elif self.option1 == self.option2: 
                     print('You both picked the same spells? Lame')
-                elif self.option1 not in ['Rock', 'Paper', 'Scissors']:  
-                    raise WrongAnswerError(f'Your answer must be either: Rock, Paper, or Scissors')
-                elif self.option2 not in ['Rock', 'Paper', 'Scissors']: 
-                    raise WrongAnswerError(f'Your answer must be either: Rock, Paper, or Scissors')
                 else:
                     self.House2 += 1
             except: 
-                print("Error")
+                print("Error, Your answer must be either: Rock, Paper, or Scissors")
 
-'''print("Welcome to the wizarding match, this shall determine which house has the best wizards!")
+print("Welcome to the wizarding match, this shall determine which house has the best wizards!")
 wizards = Wizarding_match('Ravenclaw', 'Hufflepuff')  
-start = wizards.iteration()'''
+start = wizards.iteration()
