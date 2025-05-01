@@ -10,7 +10,7 @@ if __name__ == '__main__':
                num_users = int(input("How many fresh-faced young witches and wizards have joined our ranks this year? "))
                break
           except:
-               print("Ah, seems like you've cast a charm of confusion. Please enter a number, dear wizard.")
+               print("Ah, seems like you've cast a charm of confusion. Please enter a whole number, dear wizard.")
 
      if num_users == 0:
         print("Curiously, there are no new students this year. Still, perhaps next year will bring new minds through the castle gates.")
@@ -25,11 +25,10 @@ if __name__ == '__main__':
             print(name, "you belong in...", house+"!")
         if i < num_users - 1:
             print("Would the next young wizard please step forward!")
-     print("\nNow that all are sorted, it's time for a test of wit! Answer wisely to earn points for the House Cup—may the best house triumph!\n")
+     print("\nNow that all are sorted, it's time for a test of wit! Answer wisely to earn points for the House Cup— May the best house triumph!\n")
    
      for student in students:
         student.points = trivia_questions.trivia(student.name)
-        print(student.points)
     
      G_points = 0
      R_points = 0
@@ -58,7 +57,7 @@ org_list = total_points.sort()
 if org_list[-1] == org_list[-2]:
 '''
 
-
+print("\nSplendid work on the quiz, everyone! We've tallied the house points, and a champion has emerged.")
 print("And the House Cup winner is!!! Count down with me!")
 print('5...')
 input()
@@ -71,9 +70,18 @@ input()
 print('1!!!')
 input()
 print(cup_winner+'!!!!!!!')
-    
 
+print("\nShall we unveil the final tally of points?")
+y_n = ["yes", "no"]
+while True:
+          ans = input('\nrespond with a simple "yes" or "no." ').lower()
+          if ans in y_n:
+               break
+          else:
+               print("All that is required of you is to write 'yes' or 'no'—simple as a flick of a wand.")
 
+if ans == "yes":
+     for students in students:
+          print(f"{students.name}: {students.points} points!") 
 
-
-
+print("\nThat concludes our time together for now—until next year, take care and study well.")
