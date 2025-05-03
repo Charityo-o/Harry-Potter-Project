@@ -37,8 +37,8 @@ class Wizarding_match():
             try:
                print(f'{self.house2}, choose one of the following options: \nRock: a\nPaper: b\nScissors: c') 
                 #print(f'{self.house2}, choose one of the following options: Rock, Paper, Scissors')
-                self.option2 = input()
-                if self.option2 not in ['a', 'b', 'c']:
+               self.option2 = input()
+               if self.option2 not in ['a', 'b', 'c']:
                 #if self.option2 not in ['Rock', 'Paper', 'Scissors']: 
                     raise WrongAnswerError(f'Error! Your answer must be either: a (Rock), b (Paper), or c (Scissors)')
                     #raise WrongAnswerError(f'Error! Your answer must be either: Rock, Paper, or Scissors')
