@@ -70,20 +70,23 @@ try:
     item_index = total_points.index(max_value,(max_index +1))
     wizards = wizarding_match.Wizarding_match(key_list[max_index],key_list[item_index])
     wizards.iteration()
+    cup_winner = wizards.favorite 
 except ValueError:
     print(f'Hang on ... the judges are determining the winner')
 else:
     try:
         item2_index = total_points.index(max_value,(max_index +2))
         wizards2 = wizarding_match.Wizarding_match(wizards.favorite,key_list[item2_index])
-        wizards2.iteration()    
+        wizards2.iteration() 
+        cup_winner = wizards2.favorite
     except ValueError:
         print(f'Hang on .... the judges are determining the winner')
     else:
         try:
             item3_index = total_points.index(max_value,(max_index +3))
             wizards3 = wizarding_match.Wizarding_match(wizards2.favorite,key_list[item3_index])
-            wizards3.iteration()     
+            wizards3.iteration()
+            cup_winner = wizards3.favorite
         except ValueError:
             print(f'Hang on ..... the judges are determining the winner')
         else:
