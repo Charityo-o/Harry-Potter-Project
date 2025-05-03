@@ -10,7 +10,7 @@ class Wizarding_match():
         self.option1 = 'None'
         self.option2 = 'Nah'
         self.favorite = 'Mip'
-        print("There was a tie!\nTo determine the winner we'll have a wizarding match, this shall determine which house has the best wizards!")
+        print("There was a tie!\nTo determine the winner we'll have a wizarding match \nThis shall determine which house has the best wizards!")
 
     def winner(self):
         if self.House1 == 3:
