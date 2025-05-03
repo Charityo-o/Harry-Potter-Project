@@ -9,38 +9,49 @@ class Wizarding_match():
         self.house2 = house2
         self.option1 = 'None'
         self.option2 = 'Nah'
+        self.favorite = 'Mip'
+        print("Welcome to the wizarding match, this shall determine which house has the best wizards!")
 
     def winner(self):
         if self.House1 == 3:
             print(f'The winner is {self.house1}')
+            self.favorite = self.house1
         elif self.House2 == 3:
             print(f'The winner is {self.house2}')
+            self.favorite = self.house2
         else:
             return False
+
     def iteration(self):
         while self.winner() == False:
             try:
                 print(f'{self.house1}, choose one of the following options: Rock, Paper, Scissors')
                 self.option1 = input()
                 if self.option1 not in ['Rock', 'Paper', 'Scissors']: 
-                    raise WrongAnswerError(f'Your answer must be either: Rock, Paper, or Scissors') 
+                    raise WrongAnswerError(f'Error! Your answer must be either: Rock, Paper, or Scissors')
+            except WrongAnswerError as wc_error: 
+                print(wc_error)
+            try:
                 print(f'{self.house2}, choose one of the following options: Rock, Paper, Scissors')
                 self.option2 = input()
                 if self.option2 not in ['Rock', 'Paper', 'Scissors']: 
-                    raise WrongAnswerError(f'Your answer must be either: Rock, Paper, or Scissors')
-                elif self.option1 == 'Rock' and self.option2 == 'Scissors':
-                    self.House1 += 1
-                elif self.option1 == 'Paper' and self.option2 == 'Rock':
-                    self.House1 += 1 
-                elif self.option1 == 'Scissors' and self.option2 == 'Paper':
-                    self.House1 += 1 
-                elif self.option1 == self.option2: 
-                    print('You both picked the same spells? Lame')
-                else:
-                    self.House2 += 1
-            except: 
-                print("Error, Your answer must be either: Rock, Paper, or Scissors")
+                    raise WrongAnswerError(f'Error! Your answer must be either: Rock, Paper, or Scissors')
+            except WrongAnswerError as wc_error: 
+                print(wc_error)
+            finally: self.points()
+                
+    def points(self):
+        if self.option1 == 'Rock' and self.option2 == 'Scissors':
+            self.House1 += 1
+        elif self.option1 == 'Paper' and self.option2 == 'Rock':
+            self.House1 += 1 
+        elif self.option1 == 'Scissors' and self.option2 == 'Paper':
+            self.House1 += 1
+        elif self.option1 in ['Rock', 'Paper', 'Scissors'] and self.option2 not in ['Rock', 'Paper', 'Scissors']:
+            self.House1 += 1
+        elif self.option1 == self.option2: 
+            print('You both picked the same spells? Lame')
+        else:
+            self.House2 += 1
+        
 
-'''print("Welcome to the wizarding match, this shall determine which house has the best wizards!")
-wizards = Wizarding_match('Ravenclaw', 'Hufflepuff')  
-start = wizards.iteration()'''
