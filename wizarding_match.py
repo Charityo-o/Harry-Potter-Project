@@ -26,38 +26,30 @@ class Wizarding_match():
         while self.winner() == False:
             try:
                 print(f'{self.house1}, choose one of the following options: \nRock: a\nPaper: b\nScissors: c')
-                #print(f'{self.house1}, choose one of the following options: Rock, Paper, Scissors')
                 self.option1 = input()
-                if self.option1 not in ['a', 'b', 'c']:
-                #if self.option1 not in ['Rock', 'Paper', 'Scissors']: 
+                if self.option1 not in ['a', 'b', 'c']: 
                     raise WrongAnswerError(f'Error! Your answer must be either: a (Rock), b (Paper), or c (Scissors)')
-                    #raise WrongAnswerError(f'Error! Your answer must be either: Rock, Paper, or Scissors')
             except WrongAnswerError as wc_error: 
                 print(wc_error)
+                continue
             try:
                print(f'{self.house2}, choose one of the following options: \nRock: a\nPaper: b\nScissors: c') 
-                #print(f'{self.house2}, choose one of the following options: Rock, Paper, Scissors')
                self.option2 = input()
                if self.option2 not in ['a', 'b', 'c']:
-                #if self.option2 not in ['Rock', 'Paper', 'Scissors']: 
                     raise WrongAnswerError(f'Error! Your answer must be either: a (Rock), b (Paper), or c (Scissors)')
-                    #raise WrongAnswerError(f'Error! Your answer must be either: Rock, Paper, or Scissors')
             except WrongAnswerError as wc_error: 
                 print(wc_error)
+                continue
             finally: self.points()
                 
     def points(self):
         if self.option1 == 'a' and self.option2 == 'c':
-        #if self.option1 == 'Rock' and self.option2 == 'Scissors':
             self.House1 += 1
         elif self.option1 == 'b' and self.option2 == 'a':
-        #elif self.option1 == 'Paper' and self.option2 == 'Rock':
             self.House1 += 1 
         elif self.option1 == 'c' and self.option2 == 'b':
-        #elif self.option1 == 'Scissors' and self.option2 == 'Paper':
             self.House1 += 1
         elif self.option1 in ['a', 'b', 'c'] and self.option2 not in ['a', 'b', 'c']:
-        #elif self.option1 in ['Rock', 'Paper', 'Scissors'] and self.option2 not in ['Rock', 'Paper', 'Scissors']:
             self.House1 += 1
         elif self.option1 == self.option2: 
             print('You both picked the same spells? Lame')
