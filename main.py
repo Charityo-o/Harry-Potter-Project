@@ -55,8 +55,6 @@ for key, value in house_points.items():
     if key != "muggle":
         total_points.append(value)
         key_list.append(key)
-print(total_points)
-print(key_list)
 max_value = -1
 for item in total_points:
     if item > max_value:
