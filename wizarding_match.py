@@ -31,7 +31,6 @@ class Wizarding_match():
                     raise WrongAnswerError(f'Error! Your answer must be either: a (Rock), b (Paper), or c (Scissors)')
             except WrongAnswerError as wc_error: 
                 print(wc_error)
-                continue
             try:
                print(f'{self.house2}, choose one of the following options: \nRock: a\nPaper: b\nScissors: c') 
                self.option2 = input()
@@ -39,7 +38,6 @@ class Wizarding_match():
                     raise WrongAnswerError(f'Error! Your answer must be either: a (Rock), b (Paper), or c (Scissors)')
             except WrongAnswerError as wc_error: 
                 print(wc_error)
-                continue
             finally: self.points()
                 
     def points(self):
