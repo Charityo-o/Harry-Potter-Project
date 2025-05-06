@@ -55,7 +55,7 @@ for key, value in house_points.items():
     if key != "muggle":
         total_points.append(value)
         key_list.append(key)
-max_value = -1
+max_value = 1
 for item in total_points:
     if item > max_value:
         max_value = item
@@ -63,32 +63,39 @@ max_index = total_points.index(max_value)
 for item in total_points:
     if item > max_value:
         max_value = item
-max_index = total_points.index(max_value)
 try:
-    item_index = total_points.index(max_value,(max_index +1))
-    wizards = wizarding_match.Wizarding_match(key_list[max_index],key_list[item_index])
-    wizards.iteration()
-    cup_winner = wizards.favorite 
-except ValueError:
-    print(f'Hang on ... the judges are determining the winner')
-else:
+    max_index = total_points.index(max_value)
+    for item in total_points:
+        if item > max_value:
+            max_value = item
+    max_index = total_points.index(max_value)
     try:
-        item2_index = total_points.index(max_value,(max_index +2))
-        wizards2 = wizarding_match.Wizarding_match(wizards.favorite,key_list[item2_index])
-        wizards2.iteration() 
-        cup_winner = wizards2.favorite
+        item_index = total_points.index(max_value,(max_index +1))
+        wizards = Wizarding_match(key_list[max_index],key_list[item_index])
+        wizards.iteration()
+        cup_winner = wizards.favorite 
     except ValueError:
-        print(f'Hang on .... the judges are determining the winner')
+        print(f'Hang on ... the judges are determining the winner')
     else:
         try:
-            item3_index = total_points.index(max_value,(max_index +3))
-            wizards3 = wizarding_match.Wizarding_match(wizards2.favorite,key_list[item3_index])
-            wizards3.iteration()
-            cup_winner = wizards3.favorite
+            item2_index = total_points.index(max_value,(max_index +2))
+            wizards2 = Wizarding_match(wizards.favorite,key_list[item2_index])
+            wizards2.iteration() 
+            cup_winner = wizards2.favorite
         except ValueError:
-            print(f'Hang on ..... the judges are determining the winner')
+            print(f'Hang on .... the judges are determining the winner')
         else:
-            print(f'Hang on ...... the judges are determining the winner')
+            try:
+                item3_index = total_points.index(max_value,(max_index +3))
+                wizards3 = Wizarding_match(wizards2.favorite,key_list[item3_index])
+                wizards3.iteration()
+                cup_winner = wizards3.favorite
+            except ValueError:
+                print(f'Hang on ..... the judges are determining the winner')
+            else:
+                print(f'Hang on ...... the judges are determining the winner')
+except ValueError:
+    print("None of the Hogwarts Houses Won :(")
 
 print("\nSplendid work on the quiz, everyone! We've tallied the house points, and a champion has emerged.")
 print("And the House Cup winner is!!! Count down with me!")
