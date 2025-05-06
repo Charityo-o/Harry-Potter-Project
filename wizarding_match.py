@@ -49,6 +49,8 @@ class Wizarding_match():
             self.House1 += 1
         elif self.option1 in ['a', 'b', 'c'] and self.option2 not in ['a', 'b', 'c']:
             self.House1 += 1
+        elif self.option1 not in ['a', 'b', 'c'] and self.option2 not in ['a','b','c']:
+            self.House1 += 0
         elif self.option1 == self.option2: 
             print('You both picked the same spells? Lame')
         else:
