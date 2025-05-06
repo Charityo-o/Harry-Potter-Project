@@ -1,7 +1,7 @@
 from student import Student 
 import trivia_questions
 import sorting_ceremony
-import wizarding_match
+from wizarding_match import Wizarding_match
 
 if __name__ == '__main__':
 
@@ -55,20 +55,16 @@ for key, value in house_points.items():
     if key != "muggle":
         total_points.append(value)
         key_list.append(key)
+# The following for loop is for making sure our points are at least above zero
 max_value = 1
 for item in total_points:
-    if item > max_value:
+    if item >= max_value:
         max_value = item
-max_index = total_points.index(max_value)
-for item in total_points:
-    if item > max_value:
-        max_value = item
+        
+# If the scores were zero, our max value is still 1, so an error should be raised.
 try:
     max_index = total_points.index(max_value)
-    for item in total_points:
-        if item > max_value:
-            max_value = item
-    max_index = total_points.index(max_value)
+    #storing the index of the first instance of the max value in case of a tie
     try:
         item_index = total_points.index(max_value,(max_index +1))
         wizards = Wizarding_match(key_list[max_index],key_list[item_index])
