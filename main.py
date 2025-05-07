@@ -46,78 +46,60 @@ if __name__ == '__main__':
              H_points += student.points
         else:
              m_points += student.points
-house_points = {"Gryffindor": G_points, "Ravenclaw": R_points, "Slytherin": S_points, "Hufflepuff": H_points, "muggle": m_points}
+all_points = G_points + S_points + R_points + H_points + m_points
+house_points = {"Gryffindor": G_points, "Ravenclaw": R_points, "Slytherin": S_points, "Hufflepuff": H_points}
 cup_winner = max(house_points, key = house_points.get)
 
-total_points = []
-key_list = []
-for key, value in house_points.items():
-    if key != "muggle":
-        total_points.append(value)
-        key_list.append(key)
-# The following for loop is for making sure our points are at least above zero
-max_value = 1
-for item in total_points:
-    if item >= max_value:
-        max_value = item
-        
-# If the scores were zero, our max value is still 1, so an error should be raised.
-try:
-    max_index = total_points.index(max_value)
-    #storing the index of the first instance of the max value in case of a tie
-    try:
-        item_index = total_points.index(max_value,(max_index +1))
-        wizards = Wizarding_match(key_list[max_index],key_list[item_index])
-        wizards.iteration()
-        cup_winner = wizards.favorite 
-    except ValueError:
-        print(f'Hang on ... the judges are determining the winner')
+if all_points == 0:
+     print("None of the Hogwarts Houses Won :(")
+else:
+    for key, value in house_points.items():
+        if key == "muggle":
+            continue
+        elif key == cup_winner: 
+            continue
+        elif value == house_points[cup_winner] and value != 0:
+                wizards = Wizarding_match(key, cup_winner)
+                wizards.iteration()
+                cup_winner = wizards.favorite
+    if house_points[cup_winner] < m_points:
+        cup_winner == "muggle"
+        muggle_tie = False
+    elif house_points[cup_winner] == m_points:
+        muggle_tie = True
+    else: 
+        muggle_tie = False
+
+    print("\nSplendid work on the quiz, everyone! We've tallied the house points, and a champion has emerged.")
+    if cup_winner == "muggle":
+        print("Blimey! The Muggles have bested the wizards! You lot are getting full rides to Hogwarts — Potions, Charms, Herbology, even a peek at the Forbidden Forest!")
+    elif muggle_tie == True:
+        print(f"It appears that {cup_winner} and the Muggles are neck and neck — a most unexpected tie! Thus, the House Cup is awarded to {cup_winner}! And as for our clever Muggles, you shall be granted a grand tour of Hogwarts — mind the moving staircases!")
     else:
-        try:
-            item2_index = total_points.index(max_value,(max_index +2))
-            wizards2 = Wizarding_match(wizards.favorite,key_list[item2_index])
-            wizards2.iteration() 
-            cup_winner = wizards2.favorite
-        except ValueError:
-            print(f'Hang on .... the judges are determining the winner')
-        else:
-            try:
-                item3_index = total_points.index(max_value,(max_index +3))
-                wizards3 = Wizarding_match(wizards2.favorite,key_list[item3_index])
-                wizards3.iteration()
-                cup_winner = wizards3.favorite
-            except ValueError:
-                print(f'Hang on ..... the judges are determining the winner')
+        print("And the House Cup winner is!!! Count down with me!")
+        print('5...')
+        input()
+        print('4...')
+        input()
+        print('3...')
+        input()
+        print('2...')
+        input()
+        print('1!!!')
+        input()
+        print(cup_winner+'!!!!!!!')
+
+    print("\nShall we unveil the final tally of points?")
+    y_n = ["yes", "no"]
+    while True:
+            ans = input('\nrespond with a simple "yes" or "no." ').lower()
+            if ans in y_n:
+                break
             else:
-                print(f'Hang on ...... the judges are determining the winner')
-except ValueError:
-    print("None of the Hogwarts Houses Won :(")
+                print("All that is required of you is to write 'yes' or 'no'—simple as a flick of a wand.")
 
-print("\nSplendid work on the quiz, everyone! We've tallied the house points, and a champion has emerged.")
-print("And the House Cup winner is!!! Count down with me!")
-print('5...')
-input()
-print('4...')
-input()
-print('3...')
-input()
-print('2...')
-input()
-print('1!!!')
-input()
-print(cup_winner+'!!!!!!!')
+    if ans == "yes":
+        for students in students:
+            print(f"{students.name}: {students.points} points!") 
 
-print("\nShall we unveil the final tally of points?")
-y_n = ["yes", "no"]
-while True:
-          ans = input('\nrespond with a simple "yes" or "no." ').lower()
-          if ans in y_n:
-               break
-          else:
-               print("All that is required of you is to write 'yes' or 'no'—simple as a flick of a wand.")
-
-if ans == "yes":
-     for students in students:
-          print(f"{students.name}: {students.points} points!") 
-
-print("\nThat concludes our time together for now—until next year, take care and study well.")
+    print("\nThat concludes our time together for now—until next year, take care and study well.")
