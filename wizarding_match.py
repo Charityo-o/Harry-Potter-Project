@@ -25,17 +25,17 @@ class Wizarding_match():
     def iteration(self):
         while self.winner() == False:
             try:
-                print(f'{self.house1}, choose one of the following options: \nRock: a\nPaper: b\nScissors: c')
+                print(f'{self.house1}, choose one of the following options: a (Petrificus Totalus), b (Protego), or c (Diffindo)')
                 self.option1 = input()
                 if self.option1 not in ['a', 'b', 'c']: 
-                    raise WrongAnswerError(f'Error! Your answer must be either: a (Rock), b (Paper), or c (Scissors)')
+                    raise WrongAnswerError(f'Error! Your answer must be either: a (Petrificus Totalus), b (Protego), or c (Diffindo)')
             except WrongAnswerError as wc_error: 
                 print(wc_error)
             try:
-               print(f'{self.house2}, choose one of the following options: \nRock: a\nPaper: b\nScissors: c') 
+               print(f'{self.house2}, choose one of the following options: a (Petrificus Totalus), b (Protego), or c (Diffindo)') 
                self.option2 = input()
                if self.option2 not in ['a', 'b', 'c']:
-                    raise WrongAnswerError(f'Error! Your answer must be either: a (Rock), b (Paper), or c (Scissors)')
+                    raise WrongAnswerError(f'Error! Your answer must be either: a (Petrificus Totalus), b (Protego), or c (Diffindo)')
             except WrongAnswerError as wc_error: 
                 print(wc_error)
             finally: self.points()
